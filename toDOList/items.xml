@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<items>
+	<item>
+		<content>item1</content>
+		<checked>false</checked>
+    </item>
+    <item>
+		<content>item2</content>
+		<checked>false</checked>
+	</item>
+	<item>
+		<content>item3</content>
+		<checked>false</checked>
+	</item>
+</items>
+
