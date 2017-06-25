@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+
+<script type="text/javascript">
+	
+	function ObserverList() {
+		this.observerList = [];
+	}
+	ObserverList.prototype.add = function(observer) {
+		this.observerList.push(observer);
+	}
+	ObserverList.prototype.remove = function(observer) {
+		this.observerList.splice(this.indexOf(observer), 1);
+	};
+	ObserverList.prototype.count = function() {
+		return this.observerList.length;
+	};
+	ObserverList.prototype.indexOf = function(observer) {
+		var i;
+		for (var i = 0; i < this.observerList.length; i++) {
+			if (this.observerList[i] === observer) {
+				return i;
+			}
+		}
+	};
+	ObserverList.prototype.getObserver = function(index) {
+		return this.observerList[index];
+	};
+	
+	function Subject() {
+		this.observers = new ObserverList();
+	}
+	Subject.prototype.addObserver = function(obj) {
+		this.observers.add(obj);
+	};
+	Subject.prototype.removeObserver = function(obj) {
+		this.observers.remove(obj);
+	};
+	Subject.prototype.notify = function(ctx) {
+		var i;
+		for (i = 0; i < this.observers.count(); i++) {
+			this.observers.getObserver(i).update(ctx);
+		}
+	};
+	function Observer() {
+		this.update = function() {
+			
+		}
+	}
+	var extend = function(obj, interface) {
+		var k;
+		for (k in interface) {
+			obj[k] = interface[k];
+		}
+	}
+
+	window.onload = function() {
+		extend(subject, new Subject());
+		extend(observer1, new Observer());
+		extend(observer2, new Observer());
+		extend(observer3, new Observer());
+		extend(observer4, new Observer());
+		extend(observer5, new Observer());
+		extend(observer6, new Observer());
+		extend(observer7, new Observer());
+		subject.addObserver(observer1);
+		subject.addObserver(observer2);
+		subject.addObserver(observer3);
+		subject.addObserver(observer4);
+		subject.addObserver(observer5);
+		subject.addObserver(observer6);
+		subject.addObserver(observer7);
+		subject.addEventListener('change', function() {
+			this.notify(this.value);
+		}, false);
+		observer1.update = function(val) {
+			var word = this.innerHTML;
+			var wordLowerCase = word.toLowerCase();
+			if(val == wordLowerCase.charAt(0)){
+				this.style.color = "red";
+			}
+		}
+		observer2.update = function(val) {
+			var word = this.innerHTML;
+			var wordLowerCase = word.toLowerCase();
+			if(val == wordLowerCase.charAt(0)){
+				this.style.color = "red";
+			}
+		}
+		observer3.update = function(val) {
+			var word = this.innerHTML;
+			var wordLowerCase = word.toLowerCase();
+			if(val == wordLowerCase.charAt(0)){
+				this.style.color = "red";
+			}
+		}
+		observer4.update = function(val) {
+			var word = this.innerHTML;
+			var wordLowerCase = word.toLowerCase();
+			if(val == wordLowerCase.charAt(0)){
+				this.style.color = "red";
+			}
+		}
+		observer5.update = function(val) {
+			var word = this.innerHTML;
+			var wordLowerCase = word.toLowerCase();
+			if(val == wordLowerCase.charAt(0)){
+				this.style.color = "red";
+			}
+		}
+		observer6.update = function(val) {
+			var word = this.innerHTML;
+			var wordLowerCase = word.toLowerCase();
+			if(val == wordLowerCase.charAt(0)){
+				this.style.color = "red";
+			}
+		}
+		observer7.update = function(val) {
+			var word = this.innerHTML;
+			var wordLowerCase = word.toLowerCase();
+			if(val == wordLowerCase.charAt(0)){
+				this.style.color = "red";
+			}
+		}
+		
+	};
+</script>
+</head>
+<body>
+	<div id="test"></div>
+	<form style="width: 200px" align="center">
+		<fieldset>
+			<select id="subject">
+				<option value="default">Choose letter</option>
+				<option value="o">o</option>
+				<option value="a">a</option>
+				<option value="r">r</option>
+				<option value="e">e</option>
+			</select>
+			<ul>
+				<li id="observer1">orchidea</li>
+				<li id="observer2">astronaut</li>
+				<li id="observer3">origami</li>
+				<li id="observer4">Argentina</li>
+				<li id="observer5">rocket</li>
+				<li id="observer6">ontology</li>
+				<li id="observer7">Einstein</li>
+			</ul>
+		</fieldset>
+	</form>
+</body>
+</html>
