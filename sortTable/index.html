@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Table</title>
+</head>
+<body>
+	<button onclick="sortTable(0)">Sort id</button>
+	<button onclick="sortTable(1)">Sort Name</button>
+
+	<table style="width: 50%" border="4em" id="myTable">
+		<thead>
+			<tr>
+				<th onclick="sortTable(0)">ID</th>
+				<th onclick="sortTable(1)">Name</th>
+				<th>Year</th>
+			</tr>
+		</thead>
+		<tbody id="tbody">
+			<tr>
+				<td>23</td>
+				<td>Tony</td>
+				<td>1950</td>
+			</tr>
+			<tr>
+				<td>36</td>
+				<td>Peter</td>
+				<td>1994</td>
+			</tr>
+		</tbody>
+	</table>
+	ID
+	<input type="number" id="id" /> Name
+	<input type="text" id="name" /> Year
+	<input type="number" id="year" />
+
+	<button id="submit" onClick="insRow()">Submit</button>
+	<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
